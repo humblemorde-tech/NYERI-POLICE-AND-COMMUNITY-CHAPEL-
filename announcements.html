@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Announcements - Nyeri Police and Community Chapel">
+    <title>Announcements | Nyeri Police and Community Chapel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="assets/images/church-logo.png" alt="NPCC Logo" class="church-logo">
+                <h1 class="logo">Nyeri Police & Community Chapel</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="bible.html" class="nav-link">Bible</a></li>
+                <li><a href="tenzi.html" class="nav-link">Hymns</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="announcements.html" class="nav-link active">Announcements</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+                <li><a href="admin-login.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="announcements-container">
+        <h2>Church Announcements</h2>
+        <p class="intro-text">Stay updated with the latest news and announcements from our church community</p>
+
+        <div class="announcements-filter">
+            <button class="filter-btn active" onclick="filterByDay('all')">All</button>
+            <button class="filter-btn" onclick="filterByDay('Monday')">Monday</button>
+            <button class="filter-btn" onclick="filterByDay('Tuesday')">Tuesday</button>
+            <button class="filter-btn" onclick="filterByDay('Wednesday')">Wednesday</button>
+            <button class="filter-btn" onclick="filterByDay('Thursday')">Thursday</button>
+            <button class="filter-btn" onclick="filterByDay('Friday')">Friday</button>
+            <button class="filter-btn" onclick="filterByDay('Saturday')">Saturday</button>
+            <button class="filter-btn" onclick="filterByDay('Sunday')">Sunday</button>
+        </div>
+
+        <div id="announcementsList" class="announcements-list">
+            <p>Loading announcements...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:nyeripolice@gmail.com">nyeripolice@gmail.com</a></p>
+                <p>Location: Nyeri, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="help.html">Help Centre</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="prayer-requests.html">Prayer Requests</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Nyeri Police and Community Chapel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/announcements.js"></script>
+</body>
+</html>
