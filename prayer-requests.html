@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prayer Requests - Nyeri Police and Community Chapel">
+    <title>Prayer Requests | Nyeri Police and Community Chapel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="assets/images/church-logo.png" alt="NPCC Logo" class="church-logo">
+                <h1 class="logo">Nyeri Police & Community Chapel</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="bible.html" class="nav-link">Bible</a></li>
+                <li><a href="tenzi.html" class="nav-link">Hymns</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+                <li><a href="admin-login.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="prayer-container">
+        <h2>Prayer Requests</h2>
+        <p class="intro-text">Share your prayer requests with our community. We believe in the power of prayer and intercession.</p>
+
+        <div class="prayer-content">
+            <!-- Prayer Request Form -->
+            <section class="prayer-form-section">
+                <h3>Submit a Prayer Request</h3>
+                <form id="prayerForm" class="prayer-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (Optional):</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone (Optional):</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Prayer Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category...</option>
+                            <option value="health">Health & Healing</option>
+                            <option value="family">Family Matters</option>
+                            <option value="work">Work & Career</option>
+                            <option value="spiritual">Spiritual Growth</option>
+                            <option value="finances">Finances</option>
+                            <option value="relationships">Relationships</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prayerRequest">Your Prayer Request:</label>
+                        <textarea id="prayerRequest" name="prayerRequest" rows="6" required placeholder="Share your prayer request..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="isUrgent" name="isUrgent">
+                        <label for="isUrgent">This is an urgent prayer request</label>
+                    </div>
+
+                    <button type="submit" class="btn">Submit Prayer Request</button>
+                </form>
+            </section>
+
+            <!-- Recent Prayer Requests (Public) -->
+            <section class="recent-prayers-section">
+                <h3>Prayer Chain</h3>
+                <p class="section-desc">Join us in praying for these requests from our community</p>
+                <div id="prayersList" class="prayers-list">
+                    <p>Loading prayer requests...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:nyeripolice@gmail.com">nyeripolice@gmail.com</a></p>
+                <p>Location: Nyeri, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="help.html">Help Centre</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Nyeri Police and Community Chapel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/prayer.js"></script>
+</body>
+</html>
