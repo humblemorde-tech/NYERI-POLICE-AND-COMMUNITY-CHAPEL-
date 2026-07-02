@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nyeri Police and Community Chapel - Spiritual Resources and Community Platform">
+    <title>Nyeri Police and Community Chapel</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a5f7a">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="assets/images/church-logo.png" alt="NPCC Logo" class="church-logo">
+                <h1 class="logo">Nyeri Police & Community Chapel</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="bible.html" class="nav-link">Bible</a></li>
+                <li><a href="tenzi.html" class="nav-link">Hymns</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+                <li><a href="admin-login.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Sermon Animation Section -->
+        <section class="sermon-animation">
+            <div class="sermon-container">
+                <div class="animation-wrapper">
+                    <div class="sermon-wave"></div>
+                    <div class="sermon-wave"></div>
+                    <div class="sermon-wave"></div>
+                </div>
+                <div class="sermon-content">
+                    <h2 id="currentSermon">Featured Sermon</h2>
+                    <p id="sermonText">Loading today's message...</p>
+                    <button class="btn watch-btn" onclick="watchSermon()">Watch Sermon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Bible Verse -->
+        <section class="todays-verse">
+            <div class="verse-card">
+                <h3>Today's Bible Verse</h3>
+                <p id="verseText" class="verse-text">Loading verse...</p>
+                <small id="verseReference" class="verse-reference"></small>
+                <button class="btn-small" onclick="getNewVerse()">New Verse</button>
+            </div>
+        </section>
+
+        <!-- Quick Access Features -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Bible App</h3>
+                <p>Read the Good News Bible anytime</p>
+                <a href="bible.html" class="btn">Read</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Hymns (Tenzi)</h3>
+                <p>Browse our hymn collection</p>
+                <a href="tenzi.html" class="btn">Browse</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Events</h3>
+                <p>Upcoming church events</p>
+                <a href="events.html" class="btn">View</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🙏</div>
+                <h3>Prayer Requests</h3>
+                <p>Submit your prayer requests</p>
+                <a href="prayer-requests.html" class="btn">Send</a>
+            </div>
+        </section>
+
+        <!-- Recent Announcements -->
+        <section class="announcements-section">
+            <h2>Latest Announcements</h2>
+            <div id="announcementsList" class="announcements-list">
+                <p>Loading announcements...</p>
+            </div>
+            <a href="announcements.html" class="btn view-all-btn">View All Announcements</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:nyeripolice@gmail.com">nyeripolice@gmail.com</a></p>
+                <p>Location: Nyeri, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="help.html">Help Centre</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>Social media links coming soon</p>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Nyeri Police and Community Chapel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/service-worker-register.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
