@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - Nyeri Police and Community Chapel">
+    <title>Admin Dashboard | Nyeri Police and Community Chapel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/church-logo.png" alt="Logo" class="sidebar-logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="nav-item active" onclick="showSection('dashboard')">📊 Dashboard</a>
+                <a href="#" class="nav-item" onclick="showSection('announcements')">📢 Announcements</a>
+                <a href="#" class="nav-item" onclick="showSection('events')">📅 Events</a>
+                <a href="#" class="nav-item" onclick="showSection('offerings')">💰 Offerings</a>
+                <a href="#" class="nav-item" onclick="showSection('members')">👥 Members</a>
+                <a href="#" class="nav-item" onclick="showSection('prayers')">🙏 Prayers</a>
+                <a href="#" class="nav-item" onclick="showSection('settings')">⚙️ Settings</a>
+                <a href="#" class="nav-item logout" onclick="adminLogout()">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="admin-section active">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <h3>Total Members</h3>
+                        <p id="totalMembers" class="stat-number">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <h3>Upcoming Events</h3>
+                        <p id="totalEvents" class="stat-number">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <h3>Total Offerings</h3>
+                        <p id="totalOfferings" class="stat-number">KES 0</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🙏</div>
+                        <h3>Prayer Requests</h3>
+                        <p id="totalPrayers" class="stat-number">0</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-widgets">
+                    <div class="widget">
+                        <h3>Recent Members</h3>
+                        <div id="recentMembers" class="list">Loading...</div>
+                    </div>
+                    <div class="widget">
+                        <h3>Recent Offerings</h3>
+                        <div id="recentOfferings" class="list">Loading...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Announcements Section -->
+            <div id="announcements" class="admin-section">
+                <h2>Weekly Announcements Management</h2>
+                <p class="section-desc">Create weekly announcements that auto-clear each Sunday and restart</p>
+
+                <form id="announcementForm" class="form">
+                    <div class="form-section">
+                        <h3>Create New Announcement</h3>
+                        
+                        <div class="form-group">
+                            <label for="announcementDay">Day of Week:</label>
+                            <select id="announcementDay" required>
+                                <option value="">Select day...</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="announcementTitle">Announcement Title:</label>
+                            <input type="text" id="announcementTitle" required placeholder="e.g., Sunday Service">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="announcementMessage">Message:</label>
+                            <textarea id="announcementMessage" rows="5" required placeholder="Enter your announcement..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="announcementPriority">Priority:</label>
+                            <select id="announcementPriority">
+                                <option value="normal">Normal</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="important">Important</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn">Create Announcement</button>
+                    </div>
+                </form>
+
+                <div class="announcements-list-admin">
+                    <h3>Current Week's Announcements</h3>
+                    <div id="announcementsList" class="list">Loading announcements...</div>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div id="events" class="admin-section">
+                <h2>Manage Events</h2>
+
+                <form id="eventForm" class="form">
+                    <div class="form-section">
+                        <h3>Create New Event</h3>
+                        
+                        <div class="form-group">
+                            <label for="eventTitle">Event Title:</label>
+                            <input type="text" id="eventTitle" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventDate">Date:</label>
+                                <input type="datetime-local" id="eventDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="eventLocation">Location:</label>
+                                <input type="text" id="eventLocation" placeholder="e.g., Main Chapel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDescription">Description:</label>
+                            <textarea id="eventDescription" rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Add Event</button>
+                    </div>
+                </form>
+
+                <div class="events-list-admin">
+                    <h3>Upcoming Events</h3>
+                    <div id="eventsList" class="list">Loading events...</div>
+                </div>
+            </div>
+
+            <!-- Offerings Section -->
+            <div id="offerings" class="admin-section">
+                <h2>Offerings Management</h2>
+
+                <form id="offeringForm" class="form">
+                    <div class="form-section">
+                        <h3>Record New Offering</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="offeringAmount">Amount (KES):</label>
+                                <input type="number" id="offeringAmount" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="offeringType">Offering Type:</label>
+                                <select id="offeringType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="tithe">Tithe</option>
+                                    <option value="offering">General Offering</option>
+                                    <option value="missions">Missions</option>
+                                    <option value="building">Building Fund</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="offeringDate">Date:</label>
+                            <input type="date" id="offeringDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="offeringNotes">Notes (Optional):</label>
+                            <textarea id="offeringNotes" rows="3" placeholder="Additional notes..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Record Offering</button>
+                    </div>
+                </form>
+
+                <div class="offerings-summary">
+                    <h3>Offerings Summary</h3>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <h4>Total Offerings (This Month)</h4>
+                            <p id="monthlyTotal" class="summary-number">KES 0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Total Offerings (This Year)</h4>
+                            <p id="yearlyTotal" class="summary-number">KES 0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Total All Time</h4>
+                            <p id="allTimeTotal" class="summary-number">KES 0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offerings-list-admin">
+                    <h3>Recent Offerings</h3>
+                    <div id="offeringsList" class="list">Loading offerings...</div>
+                </div>
+            </div>
+
+            <!-- Members Section -->
+            <div id="members" class="admin-section">
+                <h2>Member Management</h2>
+
+                <div class="search-box">
+                    <input type="text" id="memberSearch" placeholder="Search members...">
+                    <button class="btn" onclick="searchMembers()">Search</button>
+                </div>
+
+                <div id="membersList" class="list">Loading members...</div>
+            </div>
+
+            <!-- Prayer Requests Section -->
+            <div id="prayers" class="admin-section">
+                <h2>Prayer Requests</h2>
+
+                <div class="filter-box">
+                    <select id="prayerFilter" onchange="filterPrayers()">
+                        <option value="">All Prayers</option>
+                        <option value="new">New</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="answered">Answered</option>
+                    </select>
+                </div>
+
+                <div id="prayersList" class="list">Loading prayers...</div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="admin-section">
+                <h2>Church Settings</h2>
+
+                <form id="settingsForm" class="form">
+                    <div class="form-section">
+                        <h3>Church Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="churchName">Church Name:</label>
+                            <input type="text" id="churchName" value="Nyeri Police and Community Chapel">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="churchEmail">Church Email:</label>
+                            <input type="email" id="churchEmail" value="nyeripolice@gmail.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="churchPhone">Church Phone:</label>
+                            <input type="tel" id="churchPhone" placeholder="+254...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="churchLocation">Location:</label>
+                            <input type="text" id="churchLocation" placeholder="Nyeri, Kenya">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="churchDescription">Description:</label>
+                            <textarea id="churchDescription" rows="4"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
