@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Help Centre - Nyeri Police and Community Chapel">
+    <title>Help Centre | Nyeri Police and Community Chapel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="assets/images/church-logo.png" alt="NPCC Logo" class="church-logo">
+                <h1 class="logo">Nyeri Police & Community Chapel</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="bible.html" class="nav-link">Bible</a></li>
+                <li><a href="tenzi.html" class="nav-link">Hymns</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="help.html" class="nav-link active">Help</a></li>
+                <li><a href="admin-login.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="help-container">
+        <div class="help-header">
+            <h2>Help Centre</h2>
+            <p>Find answers to frequently asked questions and get support</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="help-search">
+            <input type="text" id="helpSearch" placeholder="Search help topics..." class="search-input">
+            <button class="btn" onclick="searchHelp()">Search</button>
+        </div>
+
+        <!-- FAQ Categories -->
+        <div class="help-categories">
+            <button class="category-btn active" onclick="filterCategory('general')">General</button>
+            <button class="category-btn" onclick="filterCategory('account')">Account</button>
+            <button class="category-btn" onclick="filterCategory('bible')">Bible App</button>
+            <button class="category-btn" onclick="filterCategory('events')">Events</button>
+            <button class="category-btn" onclick="filterCategory('prayers')">Prayer Requests</button>
+            <button class="category-btn" onclick="filterCategory('technical')">Technical</button>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="faq-list">
+            <!-- General -->
+            <div class="faq-item" data-category="general">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">What is Nyeri Police and Community Chapel?</h3>
+                <div class="faq-answer">
+                    <p>Nyeri Police and Community Chapel is a vibrant faith community dedicated to serving the spiritual needs of our church members and the surrounding community. We offer various spiritual resources including Bible study, hymns, prayer support, and community events.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="general">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How can I contact the church?</h3>
+                <div class="faq-answer">
+                    <p><strong>Email:</strong> nyeripolice@gmail.com</p>
+                    <p><strong>Phone:</strong> Available upon request</p>
+                    <p><strong>Location:</strong> Nyeri, Kenya</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="general">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">What are the service times?</h3>
+                <div class="faq-answer">
+                    <p>Please check the Events page for the latest service times and schedules. You can also contact us directly for more information.</p>
+                </div>
+            </div>
+
+            <!-- Account -->
+            <div class="faq-item" data-category="account">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I create an account?</h3>
+                <div class="faq-answer">
+                    <p>Click on the "Sign Up" link in the navigation menu. Fill in your details including name, email, phone number, and password. Choose your role (Church Member or Visitor) and agree to the terms and conditions to create your account.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">I forgot my password. What should I do?</h3>
+                <div class="faq-answer">
+                    <p>On the login page, look for a "Forgot Password?" option. Follow the instructions to reset your password using your registered email address.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I update my profile?</h3>
+                <div class="faq-answer">
+                    <p>Log in to your account and go to your profile settings. You can update your name, phone number, and other personal information from there.</p>
+                </div>
+            </div>
+
+            <!-- Bible App -->
+            <div class="faq-item" data-category="bible">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Which Bible version is available?</h3>
+                <div class="faq-answer">
+                    <p>We currently offer the Good News Bible (GNB), which is known for its clear and easy-to-understand translations. Additional versions may be added in the future.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="bible">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I search for specific Bible verses?</h3>
+                <div class="faq-answer">
+                    <p>Go to the Bible app and use the search function to look up specific verses, chapters, or keywords. You can search by book name, chapter, or verse number.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="bible">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Can I bookmark verses?</h3>
+                <div class="faq-answer">
+                    <p>Yes! You can bookmark your favorite verses for quick access. Click the bookmark icon next to any verse to save it to your bookmarks list.</p>
+                </div>
+            </div>
+
+            <!-- Events -->
+            <div class="faq-item" data-category="events">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I view upcoming events?</h3>
+                <div class="faq-answer">
+                    <p>Click on the "Events" link in the navigation menu. You'll see all upcoming church events with dates, times, and locations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="events">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I register for an event?</h3>
+                <div class="faq-answer">
+                    <p>On the event details page, look for a registration button or form. Fill in the required information and submit to register for the event.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="events">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Can I get reminders for upcoming events?</h3>
+                <div class="faq-answer">
+                    <p>Yes! You can enable notifications in your account settings to receive reminders for upcoming events.</p>
+                </div>
+            </div>
+
+            <!-- Prayers -->
+            <div class="faq-item" data-category="prayers">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">How do I submit a prayer request?</h3>
+                <div class="faq-answer">
+                    <p>Go to the "Prayer Requests" page and fill out the form with your name, email (optional), and your prayer request. You can mark it as urgent if needed. Submit to add it to our prayer chain.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="prayers">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Are prayer requests kept confidential?</h3>
+                <div class="faq-answer">
+                    <p>Yes, we take your privacy seriously. Prayer requests are reviewed only by authorized church members and are kept confidential.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="prayers">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Can I pray for other people's requests?</h3>
+                <div class="faq-answer">
+                    <p>Absolutely! We encourage all community members to join our prayer chain. Visit the Prayer Requests page to see requests you can pray for.</p>
+                </div>
+            </div>
+
+            <!-- Technical -->
+            <div class="faq-item" data-category="technical">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">What browsers are supported?</h3>
+                <div class="faq-answer">
+                    <p>Our website works on all modern browsers including Chrome, Firefox, Safari, and Edge. For the best experience, please keep your browser updated.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Is the site mobile-friendly?</h3>
+                <div class="faq-answer">
+                    <p>Yes! The website is fully responsive and works great on mobile devices, tablets, and desktops.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">Can I use the site offline?</h3>
+                <div class="faq-answer">
+                    <p>Yes! We have a Progressive Web App feature that allows you to access certain content offline. Some features like announcements and events may require internet connection.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+                <h3 class="faq-question" onclick="toggleAnswer(this)">I'm experiencing issues with the site. What should I do?</h3>
+                <div class="faq-answer">
+                    <p>Try clearing your browser cache and cookies, then reload the page. If the problem persists, contact us at nyeripolice@gmail.com with details about the issue.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="help-support">
+            <h3>Still need help?</h3>
+            <p>If you couldn't find the answer you're looking for, please contact us:</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:nyeripolice@gmail.com">nyeripolice@gmail.com</a></p>
+                <p><strong>Location:</strong> Nyeri, Kenya</p>
+            </div>
+            <button class="btn" onclick="window.location.href='prayer-requests.html'">Submit a Prayer Request</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:nyeripolice@gmail.com">nyeripolice@gmail.com</a></p>
+                <p>Location: Nyeri, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Nyeri Police and Community Chapel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            element.parentElement.classList.toggle('open');
+        }
+
+        function filterCategory(category) {
+            const items = document.querySelectorAll('.faq-item');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function searchHelp() {
+            const query = document.getElementById('helpSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Allow Enter key to search
+        document.getElementById('helpSearch').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchHelp();
+            }
+        });
+    </script>
+</body>
+</html>
